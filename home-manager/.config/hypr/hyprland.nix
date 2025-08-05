@@ -1,0 +1,27 @@
+{ config, lib, pkgs, ... }:
+
+{
+  home.file.".config/hypr/hyprland.conf".text = ''
+    # This file sources other files in `hyprland` and `custom` folders
+    # You wanna add your stuff in files in `custom`
+
+    $qsConfig = ii
+    exec = hyprctl dispatch submap global # DO NOT REMOVE THIS OR YOU WON'T BE ABLE TO USE ANY KEYBIND
+    submap = global # This is required for catchall to work
+
+    # Defaults
+    source=~/.config/hypr/hyprland/env.conf
+    source=~/.config/hypr/hyprland/execs.conf
+    source=~/.config/hypr/hyprland/general.conf
+    source=~/.config/hypr/hyprland/rules.conf
+    source=~/.config/hypr/hyprland/hyprbars.conf
+    source=~/.config/hypr/hyprland/keybinds.conf
+
+    # Custom
+   # source=~/.config/hypr/custom/env.conf
+   # source=~/.config/hypr/custom/execs.conf
+   # source=~/.config/hypr/custom/general.conf
+  #  source=~/.config/hypr/custom/rules.conf
+   # source=~/.config/hypr/custom/keybinds.conf
+  '';
+}
